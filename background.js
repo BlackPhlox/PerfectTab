@@ -11,6 +11,5 @@ function buttonClicked(tab) {
     txt: "hello"
   }
   chrome.tabs.sendMessage(tab.id, msg);
-  window.open('https://github.itu.dk/pages/mauh/SDBG18_GROUP3/#/', '_blank');
-  //window.open('marktramp/build/index.html', '_blank');
+  window.open('https://blackphlox.github.io/PerfectTab', '_blank');
 }
