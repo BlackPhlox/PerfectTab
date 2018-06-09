@@ -1,0 +1,43 @@
+.progressDot {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    display: inline-block;
+    border: 1px solid var(--black);
+}
+
+/* For when the dot is active */
+.active {
+    background-color: var(--pink);
+}
+
+/* Space between the dots */
+a {
+    margin: 15px;
+}
+
+/* The hover mechanic */
+a:hover {
+    background-color: var(--green);
+}
+
+/* The box the progress box should be in */
+.progress-box {
+    margin: auto;
+    max-width: 100%;
+    padding: 10px;
+    overflow: hidden;
+    white-space: nowrap;   
+}
+
+/* Does so that the progress bar is hidden on front and end page */
+.hidden { 
+    display:none; 
+}
+
+/* Placement on the page */
+.placement {
+    display: inline-block;
+    margin: auto;
+    white-space: normal; 
+}
