@@ -16,6 +16,9 @@
   "browser_action": {
     "default_icon": "ct.png"
   },
+  "chrome_url_overrides" : {
+    "newtab": "./index.html"
+  },
   "permissions": [
 	  "bookmarks"
   ]
