@@ -6,8 +6,10 @@ chrome.runtime.onMessage.addListener(gotMessage);
 function gotMessage(message, sender, sendResponse) {
   console.log(message.tree);
   printTree(message.tree);
+  bookmarks = message.tree;
 }
 
+let bookmarks = undefined;
 let count = 0;
 
 function printTree(tree){
@@ -51,7 +53,19 @@ function printP(index,string,url){
   if(url)favIcon.src = 'chrome://favicon/' + url;
   //else favIcon.src = "folderIcon"; To be implemented
   
-  div.appendChild(favIcon);
+  if(url){
+    let imgButton = document.createElement("button");
+    imgButton.style.padding = 0;
+    imgButton.appendChild(favIcon);
+    imgButton.addEventListener(
+                                'click', 
+                                function(){chrome.tabs.create(
+                                    { url: url }
+                                );
+    });
+    div.appendChild(imgButton);  
+  }
+    
   div.appendChild(p);
   document.body.appendChild(div);
 }
