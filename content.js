@@ -29,11 +29,12 @@ function printTree(tree){
   }
 }
 
+let firstChild = false;
 function printP(index,string,url){
   if(!string){
     return; 
   }
-  let div = document.createElement("div")
+  let div = document.createElement("div");
   //div.style.display = "inline-block";
   //div.style.float = "left";
   let favIcon = document.createElement("img");
@@ -48,6 +49,7 @@ function printP(index,string,url){
   if(index>0) space += "-\u00A0";
   let text = document.createTextNode(space+string);
   p.appendChild(text);
+    p.style.color = "white";
     
   //Defined
   if(url)favIcon.src = 'chrome://favicon/' + url;
@@ -55,7 +57,8 @@ function printP(index,string,url){
   
   if(url){
     let imgButton = document.createElement("button");
-    imgButton.style.padding = 0;
+    imgButton.style.paddingUp = 2;
+    imgButton.style.padding = 1;
     imgButton.appendChild(favIcon);
     imgButton.addEventListener(
                                 'click', 
@@ -64,8 +67,13 @@ function printP(index,string,url){
                                 );
     });
     div.appendChild(imgButton);  
+      div.style.display = "inline-grid";
+  } else {
+     p.style.display = "block";
+     document.body.appendChild(p); 
+     firstChild = true;
   }
-    
-  div.appendChild(p);
+
+  //if(has no favicon) div.appendChild(p);
   document.body.appendChild(div);
 }
